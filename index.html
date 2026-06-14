@@ -1,317 +1,326 @@
-<html class="dark" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SUSHI TOGO | El Arte del Sushi</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "outline-variant": "#5e3f3b",
-                        "on-secondary-fixed": "#1c1b1b",
-                        "on-tertiary-container": "#f7f7f7",
-                        "on-error-container": "#ffdad6",
-                        "primary": "#ffb4aa",
-                        "on-background": "#e5e2e1",
-                        "secondary-container": "#474746",
-                        "secondary-fixed-dim": "#c8c6c5",
-                        "background": "#131313",
-                        "on-surface-variant": "#e9bcb6",
-                        "error": "#ffb4ab",
-                        "on-primary-fixed-variant": "#930007",
-                        "primary-fixed-dim": "#ffb4aa",
-                        "surface-container": "#201f1f",
-                        "on-secondary": "#313030",
-                        "primary-container": "#e30613",
-                        "error-container": "#93000a",
-                        "tertiary-container": "#707171",
-                        "surface-container-low": "#1c1b1b",
-                        "surface-tint": "#ffb4aa",
-                        "on-tertiary-fixed": "#1a1c1c",
-                        "on-primary-container": "#fff5f3",
-                        "inverse-surface": "#e5e2e1",
-                        "surface-container-high": "#2a2a2a",
-                        "surface-container-highest": "#353534",
-                        "on-primary": "#690003",
-                        "surface-bright": "#3a3939",
-                        "surface-container-lowest": "#0e0e0e",
-                        "on-surface": "#e5e2e1",
-                        "on-tertiary-fixed-variant": "#454747",
-                        "primary-fixed": "#ffdad5",
-                        "on-secondary-fixed-variant": "#474746",
-                        "on-tertiary": "#2f3131",
-                        "on-primary-fixed": "#410001",
-                        "tertiary-fixed-dim": "#c6c6c7",
-                        "tertiary": "#c6c6c7",
-                        "on-secondary-container": "#b7b5b4",
-                        "surface-dim": "#131313",
-                        "on-error": "#690005",
-                        "surface": "#131313",
-                        "inverse-on-surface": "#313030",
-                        "tertiary-fixed": "#e2e2e2",
-                        "inverse-primary": "#c0000c",
-                        "secondary": "#c8c6c5",
-                        "surface-variant": "#353534",
-                        "outline": "#af8782",
-                        "secondary-fixed": "#e5e2e1"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "margin-desktop": "64px",
-                        "base": "8px",
-                        "md": "24px",
-                        "sm": "12px",
-                        "lg": "48px",
-                        "xs": "4px",
-                        "xl": "80px",
-                        "gutter": "24px",
-                        "margin-mobile": "16px"
-                    },
-                    "fontFamily": {
-                        "headline-lg-mobile": ["Sora"],
-                        "label-md": ["Manrope"],
-                        "headline-lg": ["Sora"],
-                        "headline-xl": ["Sora"],
-                        "headline-md": ["Sora"],
-                        "body-sm": ["Manrope"],
-                        "label-bold": ["Manrope"],
-                        "body-lg": ["Manrope"],
-                        "body-md": ["Manrope"]
-                    },
-                    "fontSize": {
-                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
-                        "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
-                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                        "label-bold": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
-                    }
-                },
-            },
-        }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body {
-            background-color: #0D0D0D;
-            color: #E5E2E1;
-            overflow-x: hidden;
-        }
-        .hero-gradient {
-            background: linear-gradient(to bottom, rgba(13,13,13,0.2) 0%, rgba(13,13,13,0.8) 70%, #0D0D0D 100%);
-        }
-        .text-glow {
-            text-shadow: 0 0 20px rgba(227, 6, 19, 0.4);
-        }
-        .card-hover:hover {
-            border-color: #E30613;
-            transform: translateY(-4px);
-        }
-    </style>
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sushi To Go | Santa Cruz, Bolivia</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 </head>
-<body class="font-body-md selection:bg-primary-container selection:text-on-primary-container">
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-surface-container-highest dark:border-surface-container-highest">
-<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-full mx-auto">
-<div class="flex items-center gap-base">
-<img alt="SUSHI TOGO" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCouVtK0I2klvkUciGb-xoEgs3i7eA8Y65oeP_UWmQ6NewfpjbpHB4f9aLTDpA9kEzJPwLUZH_5xFMi-T2gb11zyLbXvrBzNcXBFqH1D2eaCudRxhowX6yMUrOPAKQQ3mUkR499jE0nC48AXN43cZ5szUctXFUV4vNw_lZ--7dpdQwcV20oScNIBv-kd7FX5vYQaTEE6PQggm8FEyKxKQqc8yKWWPAJl6pSuBvZDey7kHDw6uhpiVgC_i5zUrRy2Oiz3e4KI1wbVA"/>
-<span class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface tracking-tighter">SUSHI TOGO</span>
-</div>
-<div class="hidden md:flex items-center gap-lg">
-<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md transition-colors duration-200" href="#">Menu</a>
-<a class="text-on-surface dark:text-on-surface font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Locations</a>
-</div>
-<button class="bg-primary-container text-on-primary-container px-md py-sm font-label-bold text-label-bold uppercase tracking-widest hover:opacity-90 transition-opacity active:opacity-80">
-                Order Now
-            </button>
-</div>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-wrap">
+      <div class="logo-box">
+        <img src="logo.jpeg" alt="Sushi To Go Logo" class="logo-img" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=800&q=80'"/>
+      </div>
+      <span class="brand">SUSHI TO GO</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="menu.html">Menú</a>
+      <a href="#info">Ubicación</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <button class="theme-toggle" id="themeToggle" title="Cambiar tema" aria-label="Toggle theme"></button>
+      <a href="menu.html#pedido" class="btn-order">Ordenar Ahora</a>
+    </div>
+  </div>
 </nav>
-<main>
-<!-- Hero Section -->
-<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<img alt="Sushi Showcase" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJVySVrVk-JCSAbrBHeowHzV79xjf2WLsud3EYs2RMpmsHkB9TmdsZaJMzZwtBTtL0ZZZZiDWDBXnH_M2ae8ctz0Z2iXvy3js9cTmy32tLPKoEQcWlfOuu0zlcf4iQwqcajHrw5y2k4sVLUi2Agb5QDLu1FUDWBv-vxEu11FO1kR78-hGVS4VkB1TVWS_vb68Ct7ik6saGNPXPczitTsFPBxRbUjbhZkz9gvl5_uPiwDK9SwiISNpIjIs4Bo_tcvxTxkQPzhcMGQ"/>
-<div class="absolute inset-0 hero-gradient"></div>
-</div>
-<div class="relative z-10 text-center px-margin-mobile max-w-4xl">
-<span class="font-label-bold text-label-bold text-primary-container tracking-[0.3em] uppercase mb-md block">Culinary Precision</span>
-<h1 class="font-headline-xl text-headline-xl md:text-[64px] leading-tight mb-md text-glow">EL ARTE DEL SUSHI EN TU MESA</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-2xl mx-auto">Precisión, frescura y sabor en cada bocado. Una experiencia gastronómica diseñada para los paladares más exigentes.</p>
-<div class="flex flex-col md:flex-row items-center justify-center gap-md">
-<button class="bg-primary-container text-on-primary-container px-xl py-md font-label-bold text-label-bold uppercase tracking-widest hover:scale-105 transition-transform w-full md:w-auto">
-                        Ver Menú
-                    </button>
-<button class="border border-on-surface text-on-surface px-xl py-md font-label-bold text-label-bold uppercase tracking-widest hover:bg-on-surface hover:text-background transition-all w-full md:w-auto">
-                        Reservar
-                    </button>
-</div>
-</div>
-<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-<span class="material-symbols-outlined text-primary-container">expand_more</span>
-</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+
+  <!-- Floating particles -->
+  <div class="particle" style="left:10%;top:30%;width:4px;height:4px;--dur:9s;--delay:0s;--tx:20px;"></div>
+  <div class="particle" style="left:20%;top:60%;width:3px;height:3px;--dur:11s;--delay:1s;--tx:-15px;"></div>
+  <div class="particle" style="left:75%;top:25%;width:5px;height:5px;--dur:8s;--delay:2s;--tx:25px;"></div>
+  <div class="particle" style="left:85%;top:55%;width:3px;height:3px;--dur:13s;--delay:0.5s;--tx:-20px;"></div>
+  <div class="particle" style="left:50%;top:70%;width:4px;height:4px;--dur:10s;--delay:3s;--tx:10px;"></div>
+  <div class="particle" style="left:35%;top:20%;width:3px;height:3px;--dur:12s;--delay:1.5s;--tx:-10px;"></div>
+
+  <!-- 3D Sushi -->
+  <div class="sushi-3d-wrap">
+    <div class="sushi-glow"></div>
+    <div class="sushi-3d">
+      <div class="sushi-face sushi-face--front">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="36" fill="#1a0a04" stroke="rgba(227,6,19,0.5)" stroke-width="2"/>
+          <circle cx="40" cy="40" r="26" fill="#0d0603" stroke="rgba(227,6,19,0.3)" stroke-width="1.5"/>
+          <circle cx="40" cy="40" r="14" fill="#2a1508" stroke="rgba(227,6,19,0.4)" stroke-width="1"/>
+          <circle cx="40" cy="40" r="6"  fill="rgba(227,6,19,0.8)"/>
+          <circle cx="40" cy="40" r="2"  fill="white" opacity="0.9"/>
+          <!-- rice grains -->
+          <ellipse cx="40" cy="20" rx="2.5" ry="1.2" fill="rgba(255,255,255,0.6)" transform="rotate(10,40,20)"/>
+          <ellipse cx="57" cy="30" rx="2.5" ry="1.2" fill="rgba(255,255,255,0.5)" transform="rotate(60,57,30)"/>
+          <ellipse cx="57" cy="50" rx="2.5" ry="1.2" fill="rgba(255,255,255,0.5)" transform="rotate(-60,57,50)"/>
+          <ellipse cx="40" cy="60" rx="2.5" ry="1.2" fill="rgba(255,255,255,0.6)" transform="rotate(-10,40,60)"/>
+          <ellipse cx="23" cy="50" rx="2.5" ry="1.2" fill="rgba(255,255,255,0.5)" transform="rotate(60,23,50)"/>
+          <ellipse cx="23" cy="30" rx="2.5" ry="1.2" fill="rgba(255,255,255,0.5)" transform="rotate(-60,23,30)"/>
+        </svg>
+      </div>
+      <div class="sushi-face sushi-face--back"></div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag">Santa Cruz de la Sierra · Bolivia</div>
+    <h1>El arte del<br/><span class="text-red">sushi</span> en tu mesa</h1>
+    <p>Precisión, frescura y sabor en cada bocado. Pedí online y recibí directamente en tu puerta.</p>
+    <div class="hero-ctas">
+      <a href="menu.html" class="btn-primary">Ver Menú Completo</a>
+      <a href="menu.html#pedido" class="btn-outline">Hacer Pedido</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num" data-count="4.2" data-suffix="★">0★</div>
+      <div class="stat-label">Calificación</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Bs 40–60</div>
+      <div class="stat-label">Por persona</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5–11pm</div>
+      <div class="stat-label">Todos los días</div>
+    </div>
+  </div>
 </section>
-<!-- Nuestra Esencia -->
-<section class="bg-surface-container-lowest py-xl">
-<div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
-<div class="relative group">
-<div class="absolute -inset-4 border border-primary-container/20 translate-x-4 translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform"></div>
-<img alt="Chef craft" class="relative w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A close-up shot of a professional sushi chef's hands delicately placing a thin slice of premium bluefin tuna onto a perfectly shaped bed of seasoned rice. The lighting is focused and dramatic, highlighting the texture of the fish and the precision of the movement. The background is a dark, minimalist Japanese kitchen with deep charcoal tones and subtle red accents, emphasizing the brand's sophisticated and disciplined culinary aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAp9olp5eUCKYp3up11T9i55psgQE7J-WbjXZGEif3XuxwTRkAdLg4ccaSxkKuUHmdQYlYs7UmmxfhuQ2Z5yGLPI1v2SPioIfX1PsU9Fzp0vnLikdAFkkRP4tMkBDNGIW6JPHiie2k-d19DApNCu713tDcFilmWAlrBL_btvCknkBdeJBNMxOzSsuzwBUh_GMrE4fIXBgS_PPN6_KnefX0dWGYO54srNPYlgxtcrlt5BoM1gw-mk_-GEsvCskTxPB5aky-rf2RjA"/>
-</div>
-<div class="space-y-md">
-<h2 class="font-headline-lg text-headline-lg text-on-surface flex items-center gap-sm">
-<span class="w-12 h-px bg-primary-container"></span>
-                            Nuestra Esencia
-                        </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                            En SUSHI TOGO, cada pieza es una obra de ingeniería gastronómica. Fusionamos técnicas ancestrales con una visión contemporánea, seleccionando únicamente los insumos más frescos del mercado.
-                        </p>
-<div class="grid grid-cols-2 gap-md pt-md">
-<div class="border-l-2 border-primary-container pl-md">
-<h4 class="font-headline-md text-headline-md text-primary-container">100%</h4>
-<p class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Frescura Diaria</p>
-</div>
-<div class="border-l-2 border-primary-container pl-md">
-<h4 class="font-headline-md text-headline-md text-primary-container">Artisan</h4>
-<p class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Handcrafted</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<!-- ESENCIA -->
+<section class="esencia">
+  <div class="container esencia-grid">
+    <div class="esencia-img-wrap reveal-left">
+      <div class="esencia-img-border"></div>
+      <img
+        src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=800&q=80"
+        alt="Chef preparando sushi" class="esencia-img"
+        onerror="this.src='https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=800&q=80'"
+      />
+    </div>
+    <div class="esencia-text reveal-right">
+      <div class="section-tag">Nuestra Esencia</div>
+      <h2 class="section-title" style="margin-bottom:20px;">Artesanía en<br/>cada pieza</h2>
+      <p class="body-text">En Sushi To Go, cada pieza es una obra de ingeniería gastronómica. Fusionamos técnicas ancestrales con una visión contemporánea, seleccionando únicamente los insumos más frescos del mercado boliviano.</p>
+      <div class="esencia-stats">
+        <div class="esencia-stat">
+          <div class="esencia-stat-num">100%</div>
+          <div class="esencia-stat-label">Frescura diaria</div>
+        </div>
+        <div class="esencia-stat">
+          <div class="esencia-stat-num">Artisan</div>
+          <div class="esencia-stat-label">Hecho a mano</div>
+        </div>
+      </div>
+      <a href="menu.html" class="btn-primary" style="display:inline-block;margin-top:32px;">Explorar el menú →</a>
+    </div>
+  </div>
 </section>
-<!-- Categorías Preview (Bento Grid) -->
-<section class="bg-background py-xl">
-<div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
-<div class="flex justify-between items-end mb-lg">
-<div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">Explora el Menú</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Nuestras categorías principales</p>
-</div>
-<a class="font-label-bold text-label-bold text-primary-container flex items-center gap-xs uppercase tracking-widest group" href="#">
-                        Ver todo el menú
-                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter h-auto md:h-[600px]">
-<!-- Handrolls -->
-<div class="relative group overflow-hidden md:col-span-1 bg-surface-container-high card-hover transition-all duration-300">
-<img alt="Handrolls" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="A stunning high-angle shot of artisanal Temaki handrolls arranged on a slate platter. The handrolls feature vibrant orange salmon, crisp cucumber, and creamy avocado wrapped in dark, textured nori. The scene is illuminated with low-key, moody lighting that accentuates the vibrant colors against a dark, minimalist background. The aesthetic is clean, modern, and premium, aligned with a high-end dark-mode dining experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi5ZzsX2CRhHK3MqNXO3wEw598f3_ddbAQ72O8q6r52vK2j1Ft2X-vi0dnvb4HqDcVonRDdfzGUIvcBG3-ZUIURqAX9xeyjOyOUu0VjkvyWTajebEjevNngixkuq6FC6opn8qw93b3voayfW2wwO2_hDUFWxdJNqnynEF_44o1J4x3Xq9tAc3CK8WxYwq-PJ2uCSjbq8fNcXvcULJfW7CzoyyVDbXo5Jj_YTNVvN6vmvHlcLaarInGZAjkpgKoXDADYxJG8o-G7Q"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-lg w-full">
-<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Handrolls</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Frescura envuelta para llevar.</p>
-<span class="font-label-bold text-label-bold text-primary-container tracking-widest uppercase">Desde $12</span>
-</div>
-</div>
-<!-- Tablitas -->
-<div class="relative group overflow-hidden md:col-span-2 bg-surface-container-high card-hover transition-all duration-300">
-<img alt="Tablitas" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="A large, asymmetric wooden platter featuring a premium assortment of Nigiri, Sashimi, and Maki rolls. The platter is artfully arranged with edible flowers and microgreens, creating a vibrant contrast against the deep black background. Soft, directional light highlights the glossy texture of the fish and the individual grains of rice. The overall mood is sophisticated and celebratory, perfect for a high-end sushi brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNyCcVaTZRZx2kjC7fbTTNiwpQdTtpwIriA_Dh1yfOEBfvv9kjtMfqjKZB32HO4nJc21tuB07FmLCzhgESB55ec9nzmZPu_HjllkqgdPf-PCdNpRvSbrmcqSD909QLGn6VdS__F92TY1UKAcLeqTvsoVd7O6VGMlWr9zOIhMAki_2_L2oPTka8KRReYXSy5RMy1r1op43BWd8QsRxrY-1zyHCcP6TnKF6IIhSJ9BVHU6KWbloxy9SxjRC7Vo2v0gYTtB85ZnpH2g"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-lg w-full">
-<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Tablitas</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">La selección maestra del chef para compartir.</p>
-<span class="font-label-bold text-label-bold text-primary-container tracking-widest uppercase">Especialidades</span>
-</div>
-</div>
-<!-- Rolls -->
-<div class="relative group overflow-hidden md:col-span-3 bg-surface-container-high card-hover transition-all duration-300 h-64 md:h-auto">
-<img alt="Rolls" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="A row of contemporary sushi rolls featuring creative toppings like seared scallops, spicy mayo, and edible gold flakes. The rolls are presented on a long, dark ceramic dish that emphasizes the high-end, minimalist aesthetic. The lighting is warm yet low-key, casting soft shadows that add depth to the composition. Vibrant red accents from the ingredients pop against the charcoal and black tones of the setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUJZQnmUrOyiqZYL3rSvQ6Xo_4l9ph2hq3w-RsFALYQuSMNNC5fL2BmCleP0x5f0mOOfjW3k5VOgYl7FziRx1l5B48Ai8rrYvBYOEh6XX1Hh86BUkblqdRyTvPBka1EgB5OJcx_Rflbxv5vZL0tExwYBvQavSloducq4T2nnQ2Z0KmPzPQY26lTBeFMY2ZKnZYPDWevtaqJcwu4EgfPbpjMb-lSDhVAScnz87ZQBX2KDypbKMsl5IPR5EEsJTRb0QL-OgUpPt_4Q"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-lg w-full flex justify-between items-end">
-<div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Signature Rolls</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Combinaciones únicas de autor.</p>
-</div>
-<span class="font-label-bold text-label-bold text-primary-container tracking-widest uppercase">Best Sellers</span>
-</div>
-</div>
-</div>
-</div>
+
+<!-- CATEGORÍAS BENTO -->
+<section class="categories">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-tag">Nuestras Categorías</div>
+        <h2 class="section-title">Explora el Menú</h2>
+      </div>
+      <a href="menu.html" class="link-arrow">Ver todo el menú <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="cat-bento reveal delay-2">
+      <a href="menu.html?cat=handrolls" class="cat-card cat-card--tall">
+        <img src="https://images.unsplash.com/photo-1617196033987-c0a65f6e9a7a?w=600&q=80" alt="Handrolls"
+          onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80'"/>
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <h3>Handrolls</h3>
+          <p>Frescura envuelta para llevar · ~25 cm</p>
+          <span class="cat-price">Desde Bs 35</span>
+        </div>
+      </a>
+      <a href="menu.html?cat=tablitas" class="cat-card cat-card--wide">
+        <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=800&q=80" alt="Tablitas"
+          onerror="this.src='https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&q=80'"/>
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <h3>Tablitas</h3>
+          <p>La selección maestra del chef para compartir</p>
+          <span class="cat-price">Especialidades</span>
+        </div>
+      </a>
+      <a href="menu.html?cat=rolls" class="cat-card cat-card--full">
+        <img src="https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=1000&q=80" alt="Signature Rolls"
+          onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1000&q=80'"/>
+        <div class="cat-overlay"></div>
+        <div class="cat-info cat-info--row">
+          <div><h3>Signature Rolls</h3><p>Combinaciones únicas de autor</p></div>
+          <span class="cat-price">Best Sellers</span>
+        </div>
+      </a>
+    </div>
+  </div>
 </section>
-<!-- Call to Action -->
-<section class="py-xl bg-surface-container relative overflow-hidden">
-<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
-<div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-container via-transparent to-transparent"></div>
-</div>
-<div class="px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto text-center">
-<h2 class="font-headline-lg text-headline-lg mb-md">¿Listo para la experiencia SUSHI TOGO?</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">Ordena ahora y recibe el arte del sushi directamente en tu puerta.</p>
-<div class="flex flex-col md:flex-row gap-md justify-center">
-<input class="bg-surface-container-lowest border border-surface-container-highest px-md py-sm font-body-md text-on-surface focus:border-primary-container focus:ring-0 w-full md:w-96 transition-colors" placeholder="Tu dirección de entrega..." type="text"/>
-<button class="bg-primary-container text-on-primary-container px-lg py-sm font-label-bold text-label-bold uppercase tracking-widest hover:opacity-90">Ver Disponibilidad</button>
-</div>
-</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container cta-inner reveal">
+    <div class="cta-glow"></div>
+    <div class="section-tag" style="text-align:center;">Hacé tu pedido</div>
+    <h2 class="section-title" style="margin-bottom:16px;">¿Listo para la experiencia<br/>Sushi To Go?</h2>
+    <p class="body-text" style="max-width:460px;margin:0 auto 36px;">Ordená ahora y recibí el arte del sushi directamente en tu puerta. Rápido, fresco, delicioso.</p>
+    <div class="cta-actions">
+      <a href="menu.html" class="btn-primary">Ver Menú y Ordenar</a>
+      <a href="https://wa.me/59168880027" target="_blank" class="btn-whatsapp-sm">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp directo
+      </a>
+    </div>
+  </div>
 </section>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-surface-container-highest dark:border-surface-container-highest w-full py-xl">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-md px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
-<div class="flex flex-col gap-sm">
-<div class="flex items-center gap-xs">
-<img alt="Logo" class="h-8 w-auto grayscale brightness-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCouVtK0I2klvkUciGb-xoEgs3i7eA8Y65oeP_UWmQ6NewfpjbpHB4f9aLTDpA9kEzJPwLUZH_5xFMi-T2gb11zyLbXvrBzNcXBFqH1D2eaCudRxhowX6yMUrOPAKQQ3mUkR499jE0nC48AXN43cZ5szUctXFUV4vNw_lZ--7dpdQwcV20oScNIBv-kd7FX5vYQaTEE6PQggm8FEyKxKQqc8yKWWPAJl6pSuBvZDey7kHDw6uhpiVgC_i5zUrRy2Oiz3e4KI1wbVA"/>
-<span class="font-headline-md text-headline-md text-on-surface dark:text-on-surface font-bold tracking-tighter">SUSHI TOGO</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">CULINARY PRECISION. ARTISAN CRAFT.</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-md">© 2024 SUSHI TOGO. CULINARY PRECISION.</p>
-</div>
-<div class="flex flex-col gap-sm">
-<h4 class="font-label-bold text-label-bold text-on-surface uppercase tracking-widest mb-xs">Navegación</h4>
-<div class="flex flex-col gap-xs">
-<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Contact</a>
-<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Instagram</a>
-<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Facebook</a>
-<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a>
-</div>
-</div>
-<div class="flex flex-col gap-sm">
-<h4 class="font-label-bold text-label-bold text-on-surface uppercase tracking-widest mb-xs">Horarios</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Lun - Jue: 12:00 - 23:00</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Vie - Sáb: 12:00 - 01:00</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Dom: 12:00 - 22:00</p>
-</div>
-</div>
+
+<!-- INFO -->
+<section id="info" class="info-section">
+  <div class="container">
+    <div class="section-tag reveal">Encontranos</div>
+    <h2 class="section-title reveal delay-1">Ubicación y Horarios</h2>
+    <p class="section-sub reveal delay-2">Atendemos todos los días de la semana.</p>
+    <div class="info-grid">
+      <div class="info-card reveal delay-1">
+        <div class="info-icon"><i class="ti ti-map-pin"></i></div>
+        <div class="info-title">Dirección</div>
+        <div class="info-text">
+          1 cuadra antes del, Av. Alemana<br/>Santa Cruz de la Sierra, Bolivia<br/><br/>
+          <a href="https://maps.app.goo.gl/ktmgZ1ezM7Ri7CNVA" target="_blank">Ver en Google Maps →</a>
+        </div>
+      </div>
+      <div class="info-card reveal delay-2">
+        <div class="info-icon"><i class="ti ti-clock"></i></div>
+        <div class="info-title">Horarios</div>
+        <div class="info-text">
+          <strong style="color:var(--text);">Lunes a Domingo</strong><br/>
+          5:00 PM – 11:00 PM<br/><br/>
+          <span class="open-badge">● Abierto todos los días</span>
+        </div>
+      </div>
+      <div class="info-card reveal delay-3">
+        <div class="info-icon"><i class="ti ti-phone"></i></div>
+        <div class="info-title">Contacto</div>
+        <div class="info-text">
+          WhatsApp: <a href="https://wa.me/59168880027" target="_blank">68880027</a><br/><br/>
+          También en PedidosYa:<br/>
+          <a href="https://pedidosya.com.bo" target="_blank">pedidosya.com.bo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <div class="footer-logo">
+        <div class="logo-box logo-box--sm">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="12" cy="12" rx="9" ry="6" stroke="white" stroke-width="1.5"/>
+            <ellipse cx="12" cy="12" rx="5" ry="3" fill="white" opacity="0.6"/>
+            <circle cx="12" cy="12" r="2" fill="white"/>
+          </svg>
+        </div>
+        <span class="brand">SUSHI TO GO</span>
+      </div>
+      <div class="footer-tagline">Culinary Precision · Artisan Craft</div>
+      <div class="footer-copy">© 2025 Sushi To Go · Santa Cruz, Bolivia</div>
+    </div>
+    <div class="footer-links">
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a>
+      <a href="menu.html">Menú</a>
+      <a href="menu.html#pedido">Hacer Pedido</a>
+      <a href="#info">Ubicación</a>
+    </div>
+    <div class="footer-links">
+      <h4>Contacto</h4>
+      <a href="https://wa.me/59168880027" target="_blank">WhatsApp: 68880027</a>
+      <a href="https://pedidosya.com.bo" target="_blank">PedidosYa</a>
+      <a href="https://maps.app.goo.gl/ktmgZ1ezM7Ri7CNVA" target="_blank">Ver en Maps</a>
+    </div>
+  </div>
 </footer>
+
 <script>
-        // Simple parallax effect for hero
-        window.addEventListener('scroll', () => {
-            const scroll = window.pageYOffset;
-            const heroImg = document.querySelector('.hero-gradient').previousElementSibling;
-            heroImg.style.transform = `translateY(${scroll * 0.4}px)`;
-        });
+/* ── THEME ── */
+const html = document.documentElement;
+const toggle = document.getElementById('themeToggle');
+const saved = localStorage.getItem('sushiTheme') || 'dark';
+html.setAttribute('data-theme', saved);
 
-        // Intersection Observer for fade-in elements
-        const observerOptions = {
-            threshold: 0.1
-        };
+toggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('sushiTheme', next);
+});
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                }
-            });
-        }, observerOptions);
+/* ── CUSTOM CURSOR ── */
+const dot  = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
 
-        document.querySelectorAll('section > div').forEach(section => {
-            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
-            observer.observe(section);
-        });
-    </script>
-</body></html>
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  dot.style.left = mouseX + 'px';
+  dot.style.top  = mouseY + 'px';
+});
+function animRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  ring.style.left = ringX + 'px';
+  ring.style.top  = ringY + 'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+document.querySelectorAll('a,button,.menu-card,.cat-card,.info-card').forEach(el => {
+  el.addEventListener('mouseenter', () => { dot.classList.add('hovered');  ring.classList.add('hovered'); });
+  el.addEventListener('mouseleave', () => { dot.classList.remove('hovered'); ring.classList.remove('hovered'); });
+});
+
+/* ── SCROLL REVEAL ── */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
+/* ── PARALLAX HERO ── */
+const heroBg = document.querySelector('.hero-pattern');
+window.addEventListener('scroll', () => {
+  const y = window.pageYOffset;
+  if (heroBg) heroBg.style.transform = `translateY(${y * 0.3}px)`;
+});
+
+/* ── CARD 3D TILT ── */
+document.querySelectorAll('.info-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - 0.5;
+    const y = (e.clientY - r.top)  / r.height - 0.5;
+    card.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-4px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+</script>
+</body>
+</html>

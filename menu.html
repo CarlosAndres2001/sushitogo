@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menú | Sushi To Go</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo-wrap">
+      <div class="logo-box">
+        <svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="12" rx="9" ry="6" stroke="white" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="5" ry="3" fill="white" opacity="0.6"/><circle cx="12" cy="12" r="2" fill="white"/></svg>
+      </div>
+      <span class="brand">SUSHI TO GO</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="menu.html" class="active">Menú</a>
+      <a href="index.html#info">Ubicación</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <button class="theme-toggle" id="themeToggle" title="Cambiar tema"></button>
+      <a href="#pedido" class="btn-order">Ordenar Ahora</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="section-tag">Carta completa</div>
+    <h1 style="font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-0.03em;line-height:1.1;animation:fadeSlideUp .7s ease both">Nuestro Menú</h1>
+    <p class="body-text" style="margin-top:12px;max-width:500px;animation:fadeSlideUp .7s .15s ease both">Ingredientes frescos, técnica artesanal, sabor japonés. Todos los días de 5:00 PM a 11:00 PM.</p>
+  </div>
+</div>
+
+<!-- MENÚ -->
+<section id="menu">
+  <div class="container">
+    <div class="cat-tabs reveal" id="cat-tabs">
+      <button class="cat-tab active" onclick="showCat('handrolls',this)">Handrolls</button>
+      <button class="cat-tab" onclick="showCat('rolls',this)">Rolls</button>
+      <button class="cat-tab" onclick="showCat('especiales',this)">Especiales</button>
+      <button class="cat-tab" onclick="showCat('tablitas',this)">Tablitas</button>
+      <button class="cat-tab" onclick="showCat('bebidas',this)">Bebidas</button>
+    </div>
+    <div id="cat-handrolls" class="cat-section active">
+      <p class="cat-note">Todos los handrolls miden ~25 cm. Disponibles fríos o fritos. Indicá tu preferencia al hacer el pedido.</p>
+      <div class="menu-grid" id="handrolls-grid"></div>
+    </div>
+    <div id="cat-rolls"      class="cat-section"><div class="menu-grid" id="rolls-grid"></div></div>
+    <div id="cat-especiales" class="cat-section"><div class="menu-grid" id="especiales-grid"></div></div>
+    <div id="cat-tablitas"   class="cat-section">
+      <p class="cat-note">Tablitas para compartir. Incluyen variedad de rolls, nigiris y piezas especiales.</p>
+      <div class="tablitas-grid" id="tablitas-grid"></div>
+    </div>
+    <div id="cat-bebidas"    class="cat-section"><div class="bebidas-grid" id="bebidas-grid"></div></div>
+  </div>
+</section>
+
+<!-- PEDIDO -->
+<section id="pedido" class="order-section">
+  <div class="container">
+    <div class="section-tag reveal">Ordenar</div>
+    <h2 class="section-title reveal delay-1">Hacer tu Pedido</h2>
+    <p class="section-sub reveal delay-2">Tu pedido llega directo a WhatsApp. Sin apps, sin complicaciones.</p>
+    <div class="order-grid">
+      <div class="order-form reveal-left">
+        <h3 class="order-form-title">Tus datos</h3>
+        <div class="form-group">
+          <label for="ord-nombre">Nombre *</label>
+          <input type="text" id="ord-nombre" placeholder="Tu nombre completo"/>
+        </div>
+        <div class="form-group">
+          <label for="ord-tel">Teléfono</label>
+          <input type="tel" id="ord-tel" placeholder="Ej: 70012345"/>
+        </div>
+        <div class="form-group">
+          <label for="ord-dir">Dirección de entrega *</label>
+          <input type="text" id="ord-dir" placeholder="Calle, barrio, referencias..."/>
+        </div>
+        <div class="form-group">
+          <label for="ord-nota">Notas adicionales</label>
+          <textarea id="ord-nota" placeholder="Alergias, preferencias de cocción, etc."></textarea>
+        </div>
+        <hr class="divider"/>
+        <h3 class="order-form-title">Tu carrito</h3>
+        <div id="cart-items" class="order-items"></div>
+        <div id="cart-empty" class="cart-empty">Agregá productos desde el menú →</div>
+        <div class="order-total">
+          <span>Total estimado</span>
+          <span class="order-total-price" id="cart-total">Bs 0</span>
+        </div>
+        <button class="btn-whatsapp" onclick="sendWhatsApp()">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar pedido por WhatsApp
+        </button>
+      </div>
+      <div class="reveal-right">
+        <h3 class="sidebar-title">Agregar al carrito</h3>
+        <div class="order-menu-list" id="order-menu-list"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <div class="logo-box logo-box--sm">
+          <svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="12" rx="9" ry="6" stroke="white" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="5" ry="3" fill="white" opacity="0.6"/><circle cx="12" cy="12" r="2" fill="white"/></svg>
+        </div>
+        <span class="brand">SUSHI TO GO</span>
+      </div>
+      <div class="footer-tagline">Culinary Precision · Artisan Craft</div>
+      <div class="footer-copy">© 2025 Sushi To Go · Santa Cruz, Bolivia</div>
+    </div>
+    <div class="footer-links">
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a><a href="menu.html">Menú</a>
+      <a href="#pedido">Hacer Pedido</a><a href="index.html#info">Ubicación</a>
+    </div>
+    <div class="footer-links">
+      <h4>Contacto</h4>
+      <a href="https://wa.me/59168880027" target="_blank">WhatsApp: 68880027</a>
+      <a href="https://pedidosya.com.bo" target="_blank">PedidosYa</a>
+      <a href="https://maps.app.goo.gl/ktmgZ1ezM7Ri7CNVA" target="_blank">Ver en Maps</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── THEME ── */
+const html   = document.documentElement;
+const toggle = document.getElementById('themeToggle');
+const saved  = localStorage.getItem('sushiTheme') || 'dark';
+html.setAttribute('data-theme', saved);
+toggle.addEventListener('click', () => {
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('sushiTheme', next);
+});
+
+/* ── CUSTOM CURSOR ── */
+const dot = document.getElementById('cursorDot');
+const ring= document.getElementById('cursorRing');
+let mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
+(function animR(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animR); })();
+document.querySelectorAll('a,button,.menu-card,.tablita-card,.bebida-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ dot.classList.add('hovered'); ring.classList.add('hovered'); });
+  el.addEventListener('mouseleave',()=>{ dot.classList.remove('hovered'); ring.classList.remove('hovered'); });
+});
+
+/* ── SCROLL REVEAL ── */
+const ro = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{ threshold:0.1 });
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>ro.observe(el));
+
+/* ── CARD 3D TILT ── */
+function addTilt(sel) {
+  document.querySelectorAll(sel).forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5;
+      const y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(700px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-3px)`;
+    });
+    card.addEventListener('mouseleave',()=>{ card.style.transform=''; });
+  });
+}
+
+/* ── DATA ── */
+const MENU = {
+  handrolls:[
+    {name:"Handroll de Salmón",    desc:"Salmón fresco premium, ~25 cm.",              price:45,variants:["Frío","Frito"],img:"https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=400&q=80"},
+    {name:"Handroll de Atún",      desc:"Atún seleccionado, fresco y jugoso.",          price:45,variants:["Frío","Frito"],img:"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80"},
+    {name:"Handroll de Pollo",     desc:"Pollo marinado con toque japonés.",            price:40,variants:["Frío","Frito"],img:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&q=80"},
+    {name:"Handroll de Kanikama",  desc:"Palitos de cangrejo, pepino y palta.",         price:38,variants:["Frío","Frito"],img:"https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=400&q=80"},
+    {name:"Handroll de Langostino",desc:"Langostino fresco, cremoso y sabroso.",        price:50,variants:["Frío","Frito"],img:"https://images.unsplash.com/photo-1617196033987-c0a65f6e9a7a?w=400&q=80"},
+    {name:"Handroll Veggie",       desc:"Palta, pepino, zanahoria y tofu.",             price:35,variants:["Frío","Frito"],img:"https://images.unsplash.com/photo-1574484284002-952d92456975?w=400&q=80"},
+  ],
+  rolls:[
+    {name:"Philadelphia",          desc:"Salmón, queso crema, pepino y palta.",         price:55,variants:[],img:"https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=400&q=80"},
+    {name:"Langostino Fusion",     desc:"Langostino, mango, salsa picante.",            price:60,variants:[],img:"https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=400&q=80"},
+    {name:"Camote Roll",           desc:"Camote frito, palta, salsa teriyaki.",         price:48,variants:[],img:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&q=80"},
+    {name:"Tempura Roll",          desc:"Camarón tempura, pepino, mayo picante.",       price:58,variants:[],img:"https://images.unsplash.com/photo-1617196033987-c0a65f6e9a7a?w=400&q=80"},
+    {name:"Tartar Bliss",          desc:"Tartar de salmón, sriracha, aguacate.",        price:65,variants:[],img:"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80"},
+  ],
+  especiales:[
+    {name:"Yakisoba",              desc:"Fideos salteados con vegetales frescos.",      price:55,variants:["Pollo","Camarón","Mixto"],img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80"},
+    {name:"Onigiris",              desc:"Bolitas de arroz con relleno a elección.",     price:35,variants:["Frío","Frito"],img:"https://images.unsplash.com/photo-1563612116625-3012372fccce?w=400&q=80"},
+    {name:"Sushi Burger",          desc:'Burger con "bun" de arroz y relleno japonés.',price:65,variants:[],img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80"},
+    {name:"Sushi Pizza",           desc:"Base de arroz crujiente con toppings premium.",price:70,variants:[],img:"https://images.unsplash.com/photo-1574484284002-952d92456975?w=400&q=80"},
+    {name:"Chicken Fingers",       desc:"Tiras de pollo crocante con dipping.",         price:45,variants:[],img:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&q=80"},
+    {name:"Langostino Fingers",    desc:"Langostinos empanados con salsa especial.",    price:55,variants:[],img:"https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=400&q=80"},
+  ],
+};
+const TABLITAS=[
+  {name:"Umami", pieces:19,desc:"Ideal para 1–2 personas. Mix de rolls y nigiris.",    price:90},
+  {name:"Kai",   pieces:29,desc:"Perfecta para 2–3 personas. Variedad completa.",      price:130},
+  {name:"Nori",  pieces:30,desc:"Para compartir en mesa de 3–4. Selección especial.",  price:140},
+  {name:"Marina",pieces:50,desc:"La experiencia completa. Para grupos de 4–6.",        price:220},
+];
+const BEBIDAS=[
+  {name:"Gaseosa 500ml",   sizes:"500 ml",          price:12,icon:"ti-bottle"},
+  {name:"Gaseosa 1 Litro", sizes:"1000 ml",         price:18,icon:"ti-bottle"},
+  {name:"Jugo de Frutilla",sizes:"500 ml · natural",price:14,icon:"ti-leaf"},
+  {name:"Jugo de Maracuyá",sizes:"500 ml · natural",price:14,icon:"ti-leaf"},
+  {name:"Jugo de Piña",    sizes:"500 ml · natural",price:14,icon:"ti-leaf"},
+  {name:"Jugo de Limón",   sizes:"500 ml · natural",price:13,icon:"ti-leaf"},
+];
+
+/* ── CARRITO ── */
+let cart=[];
+function addToCart(name,price){
+  const ex=cart.find(i=>i.name===name);
+  if(ex){ex.qty++;}else{cart.push({name,price,qty:1});}
+  renderCart();
+  /* mini bounce feedback */
+  const btn=event.currentTarget;
+  btn.style.transform='scale(0.93)';
+  setTimeout(()=>btn.style.transform='',150);
+}
+function updateQty(idx,delta){
+  cart[idx].qty+=delta;
+  if(cart[idx].qty<=0)cart.splice(idx,1);
+  renderCart();
+}
+function removeItem(idx){cart.splice(idx,1);renderCart();}
+function renderCart(){
+  const el=document.getElementById('cart-items');
+  const em=document.getElementById('cart-empty');
+  if(!cart.length){el.innerHTML='';em.style.display='block';}
+  else{
+    em.style.display='none';
+    el.innerHTML=cart.map((item,i)=>`
+      <div class="order-item">
+        <span class="order-item-name">${item.name}</span>
+        <div class="order-item-qty">
+          <button class="qty-btn" onclick="updateQty(${i},-1)">−</button>
+          <span class="qty-num">${item.qty}</span>
+          <button class="qty-btn" onclick="updateQty(${i}, 1)">+</button>
+        </div>
+        <span class="order-item-price">Bs ${item.qty*item.price}</span>
+        <button class="order-remove" onclick="removeItem(${i})">✕</button>
+      </div>`).join('');
+  }
+  const total=cart.reduce((s,i)=>s+i.qty*i.price,0);
+  document.getElementById('cart-total').textContent=`Bs ${total}`;
+}
+
+/* ── WHATSAPP ── */
+function sendWhatsApp(){
+  const nombre=document.getElementById('ord-nombre').value.trim();
+  const tel   =document.getElementById('ord-tel').value.trim();
+  const dir   =document.getElementById('ord-dir').value.trim();
+  const nota  =document.getElementById('ord-nota').value.trim();
+  if(!nombre||!dir){alert('Por favor completá tu nombre y dirección de entrega.');return;}
+  if(!cart.length){alert('Tu carrito está vacío. Agregá productos primero.');return;}
+  const total=cart.reduce((s,i)=>s+i.qty*i.price,0);
+  let msg=`🍣 *PEDIDO SUSHI TO GO*\n\n`;
+  msg+=`👤 *Nombre:* ${nombre}\n`;
+  if(tel) msg+=`📞 *Teléfono:* ${tel}\n`;
+  msg+=`📍 *Dirección:* ${dir}\n\n*--- PRODUCTOS ---*\n`;
+  cart.forEach(i=>{msg+=`• ${i.name} x${i.qty} = Bs ${i.qty*i.price}\n`;});
+  msg+=`\n💰 *TOTAL: Bs ${total}*`;
+  if(nota) msg+=`\n\n📝 *Nota:* ${nota}`;
+  window.open(`https://wa.me/59168880027?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+/* ── RENDER MENÚ ── */
+function renderMenuGrid(items,cid){
+  document.getElementById(cid).innerHTML=items.map(item=>`
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="${item.img}" alt="${item.name}" loading="lazy"
+          onerror="this.parentElement.innerHTML='<span class=fallback-icon>🍱</span>'"/>
+      </div>
+      <div class="menu-card-body">
+        <div class="menu-card-name">${item.name}</div>
+        <div class="menu-card-desc">${item.desc}</div>
+        <div class="menu-card-footer">
+          <span class="menu-card-price">Bs ${item.price}</span>
+          <div class="menu-card-variants">${item.variants.map(v=>`<span class="variant-tag">${v}</span>`).join('')}</div>
+        </div>
+        <button class="btn-add-cart" onclick="addToCart('${item.name}',${item.price})">+ Agregar al carrito</button>
+      </div>
+    </div>`).join('');
+  addTilt('#'+cid+' .menu-card');
+}
+function renderTablitas(){
+  document.getElementById('tablitas-grid').innerHTML=TABLITAS.map(t=>`
+    <div class="tablita-card">
+      <div class="tablita-name">${t.name}</div>
+      <div class="tablita-pieces">${t.pieces} piezas</div>
+      <div class="tablita-desc">${t.desc}</div>
+      <div class="tablita-price">Bs ${t.price}</div>
+      <button class="btn-primary" style="width:100%;font-size:11px;padding:10px;"
+        onclick="addToCart('Tablita ${t.name} (${t.pieces} pz)',${t.price})">+ Agregar al carrito</button>
+    </div>`).join('');
+  addTilt('.tablita-card');
+}
+function renderBebidas(){
+  document.getElementById('bebidas-grid').innerHTML=BEBIDAS.map(b=>`
+    <div class="bebida-card">
+      <div class="bebida-icon"><i class="ti ${b.icon}"></i></div>
+      <div><div class="bebida-name">${b.name}</div><div class="bebida-sizes">${b.sizes} · Bs ${b.price}</div></div>
+      <button class="btn-add-sm" onclick="addToCart('${b.name}',${b.price})">+</button>
+    </div>`).join('');
+}
+function renderOrderMenu(){
+  const c=document.getElementById('order-menu-list');
+  let h='';
+  [{label:'Handrolls',items:MENU.handrolls},{label:'Rolls',items:MENU.rolls},{label:'Especiales',items:MENU.especiales}].forEach(cat=>{
+    h+=`<div class="order-menu-cat">${cat.label}</div>`;
+    cat.items.forEach(item=>{
+      h+=`<div class="order-menu-item" onclick="addToCart('${item.name}',${item.price})">
+        <span class="order-menu-item-name">${item.name}<span class="order-menu-item-price"> Bs ${item.price}</span></span>
+        <button class="order-menu-item-add" onclick="event.stopPropagation();addToCart('${item.name}',${item.price})">+</button>
+      </div>`;
+    });
+  });
+  h+=`<div class="order-menu-cat">Tablitas</div>`;
+  TABLITAS.forEach(t=>{
+    h+=`<div class="order-menu-item" onclick="addToCart('Tablita ${t.name} (${t.pieces} pz)',${t.price})">
+      <span class="order-menu-item-name">Tablita ${t.name}<span class="order-menu-item-price"> Bs ${t.price}</span></span>
+      <button class="order-menu-item-add" onclick="event.stopPropagation();addToCart('Tablita ${t.name} (${t.pieces} pz)',${t.price})">+</button>
+    </div>`;
+  });
+  h+=`<div class="order-menu-cat">Bebidas</div>`;
+  BEBIDAS.forEach(b=>{
+    h+=`<div class="order-menu-item" onclick="addToCart('${b.name}',${b.price})">
+      <span class="order-menu-item-name">${b.name}<span class="order-menu-item-price"> Bs ${b.price}</span></span>
+      <button class="order-menu-item-add" onclick="event.stopPropagation();addToCart('${b.name}',${b.price})">+</button>
+    </div>`;
+  });
+  c.innerHTML=h;
+}
+
+/* ── TABS ── */
+function showCat(cat,btn){
+  document.querySelectorAll('.cat-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.cat-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('cat-'+cat).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── URL PARAM ── */
+function initFromUrl(){
+  const p=new URLSearchParams(window.location.search).get('cat');
+  if(p){const tab=document.querySelector(`.cat-tab[onclick*="'${p}'"]`);if(tab)showCat(p,tab);}
+}
+
+/* ── INIT ── */
+renderMenuGrid(MENU.handrolls,'handrolls-grid');
+renderMenuGrid(MENU.rolls,'rolls-grid');
+renderMenuGrid(MENU.especiales,'especiales-grid');
+renderTablitas(); renderBebidas(); renderOrderMenu(); renderCart(); initFromUrl();
+</script>
+</body>
+</html>
