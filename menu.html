@@ -4,6 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Menú | Sushi To Go</title>
+  <link rel="icon" type="image/x-icon" href="logoo.ico">
   <link rel="stylesheet" href="styles.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
@@ -18,9 +19,9 @@
   <div class="nav-inner">
     <a href="index.html" class="logo-wrap">
       <div class="logo-box">
-        <svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="12" rx="9" ry="6" stroke="white" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="5" ry="3" fill="white" opacity="0.6"/><circle cx="12" cy="12" r="2" fill="white"/></svg>
+        <img src="logor.png" alt="Sushi To Go Logo" class="logo-img" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=800&q=80'"/>
       </div>
-      <span class="brand">SUSHI TO GO</span>
+      
     </a>
     <div class="nav-links">
       <a href="index.html">Inicio</a>
@@ -53,6 +54,7 @@
       <button class="cat-tab" onclick="showCat('especiales',this)">Especiales</button>
       <button class="cat-tab" onclick="showCat('tablitas',this)">Tablitas</button>
       <button class="cat-tab" onclick="showCat('bebidas',this)">Bebidas</button>
+      <button class="cat-tab" onclick="showCat('alitas',this)">Alitas</button>
     </div>
     <div id="cat-handrolls" class="cat-section active">
       <p class="cat-note">Todos los handrolls miden ~25 cm. Disponibles fríos o fritos. Indicá tu preferencia al hacer el pedido.</p>
@@ -65,6 +67,10 @@
       <div class="tablitas-grid" id="tablitas-grid"></div>
     </div>
     <div id="cat-bebidas"    class="cat-section"><div class="bebidas-grid" id="bebidas-grid"></div></div>
+    <div id="cat-alitas"     class="cat-section">
+      <p class="cat-note">Alitas de pollo con diferentes salsas. Perfectas para acompañar tu pedido.</p>
+      <div class="menu-grid" id="alitas-grid"></div>
+    </div>
   </div>
 </section>
 
@@ -194,6 +200,7 @@ const MENU = {
     {name:"Handroll Veggie",       desc:"Palta, pepino, zanahoria y tofu.",             price:35,variants:["Frío","Frito"],img:"https://images.unsplash.com/photo-1574484284002-952d92456975?w=400&q=80"},
   ],
   rolls:[
+    {name:"Chimichurri Roll",      desc:"Roll con salsa chimichurri y topping de cebolla.",price:70,variants:[],img:"img/CHIMICHURRI_ROLL.png"},
     {name:"Philadelphia",          desc:"Salmón, queso crema, pepino y palta.",         price:55,variants:[],img:"https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=400&q=80"},
     {name:"Langostino Fusion",     desc:"Langostino, mango, salsa picante.",            price:60,variants:[],img:"https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=400&q=80"},
     {name:"Camote Roll",           desc:"Camote frito, palta, salsa teriyaki.",         price:48,variants:[],img:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&q=80"},
@@ -201,7 +208,9 @@ const MENU = {
     {name:"Tartar Bliss",          desc:"Tartar de salmón, sriracha, aguacate.",        price:65,variants:[],img:"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80"},
   ],
   especiales:[
-    {name:"Yakisoba",              desc:"Fideos salteados con vegetales frescos.",      price:55,variants:["Pollo","Camarón","Mixto"],img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80"},
+    {name:"Yakisoba",              desc:"Fideos salteados con vegetales frescos.",      price:55,variants:["Pollo","Camarón","Mixto"],img:"img/YAKISOBA MIXTO.png"},
+    {name:"Yakisoba Pollo",        desc:"Fideos salteados con vegetales frescos.",      price:55,variants:["Pollo"],img:"img/YAKISOBA POLLO.png"},
+    {name:"Yakisoba Camarón",      desc:"Fideos salteados con vegetales frescos.",      price:55,variants:["Camarón"],img:"img/YAKISOBA LANGOSTINO.png"},
     {name:"Onigiris",              desc:"Bolitas de arroz con relleno a elección.",     price:35,variants:["Frío","Frito"],img:"https://images.unsplash.com/photo-1563612116625-3012372fccce?w=400&q=80"},
     {name:"Sushi Burger",          desc:'Burger con "bun" de arroz y relleno japonés.',price:65,variants:[],img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80"},
     {name:"Sushi Pizza",           desc:"Base de arroz crujiente con toppings premium.",price:70,variants:[],img:"https://images.unsplash.com/photo-1574484284002-952d92456975?w=400&q=80"},
@@ -222,6 +231,13 @@ const BEBIDAS=[
   {name:"Jugo de Maracuyá",sizes:"500 ml · natural",price:14,icon:"ti-leaf"},
   {name:"Jugo de Piña",    sizes:"500 ml · natural",price:14,icon:"ti-leaf"},
   {name:"Jugo de Limón",   sizes:"500 ml · natural",price:13,icon:"ti-leaf"},
+];
+const ALITAS=[
+  {name:"Alitas Chimichurri",    desc:"Alitas de pollo con salsa chimichurri.", price:35,img:"img/chimichuri.jpeg"},
+  {name:"Alitas Picantes",       desc:"Alitas de pollo con salsa picante.",   price:35,img:"img/picante.jpeg"},
+  {name:"Alitas Teriyaki",       desc:"Alitas de pollo con salsa agridulce.",price:35,img:"img/teriyaki.jpeg"},
+  {name:"Alitas Maracuyá",       desc:"Alitas de pollo con salsa barbacoa.", price:35,img:"img/maracuya.jpeg"},
+  {name:"Alitas Acevichada",     desc:"Alitas de pollo con salsa agridulce.",price:35,img:"img/acevichada.jpeg"},
 ];
 
 /* ── CARRITO ── */
@@ -314,6 +330,7 @@ function renderTablitas(){
     </div>`).join('');
   addTilt('.tablita-card');
 }
+
 function renderBebidas(){
   document.getElementById('bebidas-grid').innerHTML=BEBIDAS.map(b=>`
     <div class="bebida-card">
@@ -321,6 +338,24 @@ function renderBebidas(){
       <div><div class="bebida-name">${b.name}</div><div class="bebida-sizes">${b.sizes} · Bs ${b.price}</div></div>
       <button class="btn-add-sm" onclick="addToCart('${b.name}',${b.price})">+</button>
     </div>`).join('');
+}
+function renderAlitas(){
+  document.getElementById('alitas-grid').innerHTML=ALITAS.map(a=>`
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="${a.img}" alt="${a.name}" loading="lazy"
+          onerror="this.parentElement.innerHTML='<span class=fallback-icon>🍱</span>'"/>
+      </div>
+      <div class="menu-card-body">
+        <div class="menu-card-name">${a.name}</div>
+        <div class="menu-card-desc">${a.desc}</div>
+        <div class="menu-card-footer">
+          <span class="menu-card-price">Bs ${a.price}</span>
+        </div>
+        <button class="btn-add-cart" onclick="addToCart('${a.name}',${a.price})">+ Agregar al carrito</button>
+      </div>
+    </div>`).join('');
+  addTilt('#alitas-grid .menu-card');
 }
 function renderOrderMenu(){
   const c=document.getElementById('order-menu-list');
@@ -348,6 +383,13 @@ function renderOrderMenu(){
       <button class="order-menu-item-add" onclick="event.stopPropagation();addToCart('${b.name}',${b.price})">+</button>
     </div>`;
   });
+  h+=`<div class="order-menu-cat">Alitas</div>`;
+  ALITAS.forEach(a=>{
+    h+=`<div class="order-menu-item" onclick="addToCart('${a.name}',${a.price})">
+      <span class="order-menu-item-name">${a.name}<span class="order-menu-item-price"> Bs ${a.price}</span></span>
+      <button class="order-menu-item-add" onclick="event.stopPropagation();addToCart('${a.name}',${a.price})">+</button>
+    </div>`;
+  });
   c.innerHTML=h;
 }
 
@@ -369,7 +411,12 @@ function initFromUrl(){
 renderMenuGrid(MENU.handrolls,'handrolls-grid');
 renderMenuGrid(MENU.rolls,'rolls-grid');
 renderMenuGrid(MENU.especiales,'especiales-grid');
-renderTablitas(); renderBebidas(); renderOrderMenu(); renderCart(); initFromUrl();
+renderTablitas(); 
+renderBebidas(); 
+renderAlitas();
+renderOrderMenu(); 
+renderCart(); 
+initFromUrl(); 
 </script>
 </body>
 </html>
